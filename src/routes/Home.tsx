@@ -1,15 +1,26 @@
 import { Link } from 'react-router-dom'
 import BookCard from '../components/BookCard'
 import { books } from '../content/books'
-import { site } from '../content/site'
+import logo from '../assets/img/TerminusRift_logo.webp'
 
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero__eyebrow">A Tabletop Roleplaying Game</div>
-        <h1 className="hero__title">{site.name}</h1>
-        <p className="hero__lede">{site.tagline}</p>
+        <img className="hero__logo" src={logo} alt="Terminus Rift" />
+        <h1 className="sr-only">Terminus Rift</h1>
+        <p className="hero__lede">
+          Embark on an epic journey with <em>Terminus Rift</em>, a high fantasy
+          tabletop RPG in development, infused with whispers of cosmic mystery.
+        </p>
+        <p className="hero__body">
+          Unleash your imagination through an innovative character creation
+          process, wield a boundless array of magic, and dive into thrilling
+          combat that blends strategy and heroism.
+        </p>
+        <p className="hero__tease">
+          Stay tuned for a world of lore, secrets, and adventure.
+        </p>
       </section>
 
       <section>
@@ -28,7 +39,7 @@ export default function Home() {
       <hr className="divider" />
 
       <section>
-        <h2>What makes Terminus Rift different</h2>
+        <h2>Grounded in real physics</h2>
         <p>
           The Astralis system — the in-world setting — is grounded in real
           astrophysics. Stellar parameters, orbital mechanics, and biological
