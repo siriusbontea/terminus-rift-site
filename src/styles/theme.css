@@ -1,0 +1,49 @@
+/* Color tokens lifted from Shared/terminus-rift-common.tex */
+:root {
+  --tr-blue:        #1A3A5C;
+  --tr-gold:        #C49A2B;
+  --tr-green:       #2D6A4F;
+  --tr-red:         #8B1A1A;
+  --tr-grey:        #4A4A4A;
+  --tr-light-blue:  #E0EAF0;
+  --tr-light-gold:  #FDF5E6;
+  --tr-light-green: #E8F5E9;
+  --tr-light-red:   #FDECEC;
+  --tr-light-grey:  #E8E8E8;
+
+  --bg:        #FAFAF8;
+  --surface:   #FFFFFF;
+  --text:      #1F2933;
+  --text-mute: #4A4A4A;
+  --rule:      rgba(26, 58, 92, 0.15);
+
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Philosopher', Georgia, serif;
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  --container-width: 1100px;
+  --gutter:          1.25rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 18px rgba(26, 58, 92, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0E1B2A;
+    --surface:   #14253A;
+    --text:      #E8EEF5;
+    --text-mute: #B6C4D4;
+    --rule:      rgba(196, 154, 43, 0.25);
+    --tr-light-blue:  #1A3A5C;
+    --tr-light-gold:  #2A2316;
+    --tr-light-green: #16291E;
+    --tr-light-red:   #2A1414;
+    --tr-light-grey:  #2A2A2A;
+    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+}
