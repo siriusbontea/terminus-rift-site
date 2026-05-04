@@ -1,6 +1,17 @@
 import { useParams, Link } from 'react-router-dom'
-import { bookBySlug } from '../content/books'
+import { bookBySlug, type Book } from '../content/books'
 import CalloutBox from '../components/CalloutBox'
+
+const statusLabel: Record<Book['status'], string> = {
+  'pre-release': 'Pre-release',
+  draft: 'Draft',
+  released: 'Released',
+}
+const statusClass: Record<Book['status'], string> = {
+  'pre-release': 'badge--soon',
+  draft: 'badge--draft',
+  released: 'badge--released',
+}
 
 export default function BookDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -17,6 +28,11 @@ export default function BookDetail() {
     )
   }
 
+  const downloadCopy =
+    book.status === 'released'
+      ? `The ${book.title} has reached its first complete edition. PDF download will be linked here once the public release URL is set.`
+      : `The ${book.title} PDF will be available here when it reaches the next playtest milestone. Until then, this page is a preview.`
+
   return (
     <>
       <p className="muted" style={{ marginBottom: 0 }}>
@@ -24,7 +40,7 @@ export default function BookDetail() {
       </p>
       <h1>{book.title}</h1>
       <div className="tag-row">
-        <span className="badge badge--soon">Pre-release</span>
+        <span className={`badge ${statusClass[book.status]}`}>{statusLabel[book.status]}</span>
         <span className="badge badge--draft">v{book.version}</span>
       </div>
       <p className="lede">{book.blurb}</p>
@@ -37,8 +53,7 @@ export default function BookDetail() {
       </ul>
 
       <CalloutBox variant="tip" title="Download">
-        The {book.title} PDF will be available here when it reaches the next
-        playtest milestone. Until then, this page is a preview.
+        {downloadCopy}
       </CalloutBox>
     </>
   )

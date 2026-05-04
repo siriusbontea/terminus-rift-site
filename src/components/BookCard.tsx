@@ -4,13 +4,13 @@ import type { Book } from '../content/books'
 const statusLabel: Record<Book['status'], string> = {
   'pre-release': 'Pre-release',
   draft: 'Draft',
-  published: 'Published',
+  released: 'Released',
 }
 
 const statusClass: Record<Book['status'], string> = {
   'pre-release': 'badge--soon',
   draft: 'badge--draft',
-  published: '',
+  released: 'badge--released',
 }
 
 export default function BookCard({ book }: { book: Book }) {

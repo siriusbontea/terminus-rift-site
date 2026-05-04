@@ -265,8 +265,9 @@ a:hover { color: var(--tr-gold); }
   color: var(--tr-blue);
   border: 1px solid var(--tr-gold);
 }
-.badge--soon  { background: var(--tr-light-grey); border-color: var(--tr-grey); color: var(--tr-grey); }
-.badge--draft { background: var(--tr-light-blue); border-color: var(--tr-blue); color: var(--tr-blue); }
+.badge--soon     { background: var(--tr-light-grey); border-color: var(--tr-grey); color: var(--tr-grey); }
+.badge--draft    { background: var(--tr-light-blue); border-color: var(--tr-blue); color: var(--tr-blue); }
+.badge--released { background: var(--tr-light-green); border-color: var(--tr-green); color: var(--tr-green); }
 
 /* Callout (mirrors LaTeX tcolorbox styles) */
 .callout {

@@ -1,4 +1,4 @@
-export type BookStatus = 'pre-release' | 'draft' | 'published'
+export type BookStatus = 'pre-release' | 'draft' | 'released'
 
 export type Book = {
   slug: string
@@ -17,7 +17,7 @@ export const books: Book[] = [
     slug: 'core-rulebook',
     title: 'Core Rulebook',
     short: 'CRB',
-    version: '0.3.0',
+    version: '0.10.0',
     status: 'pre-release',
     blurb:
       'The player-facing core. Character creation, ancestries, classes, the action economy, magic, and the foundational rules of play.',
@@ -34,7 +34,7 @@ export const books: Book[] = [
     slug: 'rift-masters-guide',
     title: "Rift Master's Guide",
     short: 'RMG',
-    version: '0.2.0',
+    version: '0.7.0',
     status: 'pre-release',
     blurb:
       'The GM-facing volume. Encounter design, optional rule modules, factions, the Rift, and running campaigns in the Astralis system.',
@@ -51,7 +51,7 @@ export const books: Book[] = [
     slug: 'bestiary',
     title: 'Bestiary',
     short: 'BST',
-    version: '0.2.0',
+    version: '0.1.2',
     status: 'pre-release',
     blurb:
       'The creature compendium. Stat blocks, habitats, tactics, and the ecology of the Astralis system.',
