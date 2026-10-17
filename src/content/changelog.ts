@@ -25,6 +25,10 @@ export const changelog: ChangelogEntry[] = [
         kind: 'Changed',
         text: 'The 10,000 ft skimmer ceiling is unchanged. Surface gravity remains Earth-normal (9.80 m/s²); the limit is the slightly denser atmosphere and the thermal shear where dayside and terminator air meet.',
       },
+      {
+        kind: 'Changed',
+        text: 'The Dayside penumbra grades from Heat EP 1–2 at the inner edge to EP 4–5 at the outer ring. The Great Tempest belt is about 80,000 km, the circumference of Vellmir.',
+      },
     ],
   },
   {
@@ -35,6 +39,10 @@ export const changelog: ChangelogEntry[] = [
       {
         kind: 'Changed',
         text: 'Gazetteer regional travel times now follow the Core Rulebook Overland Speed table at the live distances. Star Hollow, Ashveil, and Frostveil overland and sail routes use multi-month and expedition-scale ranges; the Djupverk-to-surface Deeproad is unchanged.',
+      },
+      {
+        kind: 'Changed',
+        text: "The gazetteer band map and the Footprint use the penumbra gradient and Cold EP 1–2 for the Umbra. The Footprint is the Umbra capital. The Great Tempest is a belt 200–800 km wide that spills over both shores.",
       },
     ],
   },
