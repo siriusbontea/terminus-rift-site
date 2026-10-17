@@ -17,7 +17,7 @@ export const books: Book[] = [
     slug: 'core-rulebook',
     title: 'Core Rulebook',
     short: 'CRB',
-    version: '0.15.1',
+    version: '0.15.2',
     status: 'pre-release',
     blurb:
       'The player-facing core. Character creation, ancestries, classes, the action economy, magic, and the foundational rules of play.',
@@ -34,7 +34,7 @@ export const books: Book[] = [
     slug: 'rift-masters-guide',
     title: "Rift Master's Guide",
     short: 'RMG',
-    version: '0.10.0',
+    version: '0.11.0',
     status: 'pre-release',
     blurb:
       'The GM-facing volume. Encounter design, optional rule modules, factions, the Rift, and running campaigns in the Astralis system.',

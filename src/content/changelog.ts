@@ -17,6 +17,28 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: '2026-10-17',
+    book: 'Core Rulebook',
+    version: '0.15.2',
+    changes: [
+      {
+        kind: 'Changed',
+        text: 'The 10,000 ft skimmer ceiling is unchanged. Surface gravity remains Earth-normal (9.80 m/s²); the limit is the slightly denser atmosphere and the thermal shear where dayside and terminator air meet.',
+      },
+    ],
+  },
+  {
+    date: '2026-10-17',
+    book: "Rift Master's Guide",
+    version: '0.11.0',
+    changes: [
+      {
+        kind: 'Changed',
+        text: 'Gazetteer regional travel times now follow the Core Rulebook Overland Speed table at the live distances. Star Hollow, Ashveil, and Frostveil overland and sail routes use multi-month and expedition-scale ranges; the Djupverk-to-surface Deeproad is unchanged.',
+      },
+    ],
+  },
+  {
     date: '2026-09-11',
     book: 'Core Rulebook',
     version: '0.15.1',
