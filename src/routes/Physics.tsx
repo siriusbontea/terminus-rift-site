@@ -28,6 +28,13 @@ export default function Physics() {
         </li>
       </ul>
 
+      <h2>Adopted figures for Vellmir</h2>
+      <p>
+        The physics appendices adopt a diameter of 25,484 km (radius
+        12,742 km) and a surface gravity of 9.80 m/s². Rotation is
+        tidally locked: one hemisphere faces Astralis permanently.
+      </p>
+
       <h2>The audit chain</h2>
       <p>
         Three companion documents anchor the system: a parameters file

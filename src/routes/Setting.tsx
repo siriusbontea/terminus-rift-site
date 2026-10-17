@@ -10,6 +10,18 @@ export default function Setting() {
         in-world magic layered over it.
       </p>
 
+      <h2>Vellmir</h2>
+      <p>
+        Play is set on Vellmir, a tidally locked world: one face always
+        points at Astralis. The dayside is scorched, the nightside is
+        frozen, and most civilisations live in the terminator — a twilight
+        band that holds the Twilight Sea.
+      </p>
+      <p>
+        The planet's diameter is 25,484 km, so the radius is 12,742 km.
+        Surface gravity is 9.80 m/s².
+      </p>
+
       <h2>Astralis</h2>
       <p>
         The Astralis system follows real-world stellar and orbital physics.
