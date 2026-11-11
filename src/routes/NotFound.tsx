@@ -8,7 +8,7 @@ export default function NotFound() {
         That page doesn't exist. It may have moved, or the link may be wrong.
       </p>
       <p>
-        <Link to="/">← Back to home</Link>
+        <Link className="back-link" to="/">← Back to home</Link>
       </p>
     </>
   )

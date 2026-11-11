@@ -36,7 +36,7 @@ export default function BookDetail() {
   return (
     <>
       <p className="muted" style={{ marginBottom: 0 }}>
-        <Link to="/books">← All books</Link>
+        <Link className="back-link" to="/books">← All books</Link>
       </p>
       <h1>{book.title}</h1>
       <div className="tag-row">

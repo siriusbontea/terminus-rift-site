@@ -22,6 +22,9 @@ export default function BookCard({ book }: { book: Book }) {
         <span>v{book.version}</span>
       </div>
       <p className="book-card__blurb">{book.blurb}</p>
+      <span className="book-card__more" aria-hidden="true">
+        Read more →
+      </span>
     </Link>
   )
 }
