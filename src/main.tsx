@@ -5,11 +5,10 @@ import App from './App.tsx'
 import './styles/theme.css'
 import './styles/globals.css'
 
-// basename matches Vite's `base` so the router treats /terminus-rift-site/
-// as the application root.
+// basename matches Vite's `base` (the site root).
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/terminus-rift-site">
+    <BrowserRouter basename="/">
       <App />
     </BrowserRouter>
   </StrictMode>,

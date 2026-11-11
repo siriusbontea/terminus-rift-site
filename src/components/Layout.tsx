@@ -30,10 +30,6 @@ export default function Layout() {
       <a className="skip" href="#main">
         Skip to the content
       </a>
-      {/* Remove at launch, together with the noindex tag in index.html. */}
-      <p className="preview-banner" role="note">
-        Preview of the new site, not yet launched.
-      </p>
       <Header />
       <main id="main" className="page__main" tabIndex={-1}>
         {isHome ? (
