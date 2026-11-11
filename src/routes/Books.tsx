@@ -6,8 +6,8 @@ export default function Books() {
     <>
       <h1>Books</h1>
       <p className="lede">
-        Three pre-release rulebooks. PDF downloads will be made available once
-        each book reaches a stable playtest version.
+        Three pre-release rulebooks. All three are in playtest, not yet
+        available.
       </p>
       <div className="book-grid" style={{ marginTop: '2rem' }}>
         {books.map((book) => (

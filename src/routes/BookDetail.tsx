@@ -28,10 +28,7 @@ export default function BookDetail() {
     )
   }
 
-  const downloadCopy =
-    book.status === 'released'
-      ? `The ${book.title} has reached its first complete edition. PDF download will be linked here once the public release URL is set.`
-      : `The ${book.title} PDF will be available here when it reaches the next playtest milestone. Until then, this page is a preview.`
+  const availability = `The ${book.title} is in playtest, not yet available.`
 
   return (
     <>
@@ -52,8 +49,8 @@ export default function BookDetail() {
         ))}
       </ul>
 
-      <CalloutBox variant="tip" title="Download">
-        {downloadCopy}
+      <CalloutBox variant="tip" title="Availability">
+        {availability}
       </CalloutBox>
     </>
   )
