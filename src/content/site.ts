@@ -11,17 +11,22 @@ export const site = {
   contactEndpoint: import.meta.env.VITE_CONTACT_ENDPOINT ?? '',
 } as const
 
-export type SocialKey = 'linkedin' | 'github' | 'osm' | 'x' | 'facebook' | 'youtube'
+export type SocialKey = 'github' | 'osm' | 'x' | 'youtube'
 
-export const socials: Array<{ key: SocialKey; label: string; href: string }> = [
-  { key: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/siriusbontea/' },
+type Social = { key: SocialKey; label: string; href: string }
+
+// Game channels shown in the footer and the Follow development block.
+export const gameChannels: Social[] = [
+  { key: 'youtube', label: 'Dev updates on YouTube', href: 'https://www.youtube.com/@siriusbontea/about' },
+  { key: 'x', label: 'News on X', href: 'https://x.com/SiriusBontea' },
+]
+
+// Other profiles, listed on the About page.
+export const otherProfiles: Social[] = [
   { key: 'github', label: 'GitHub', href: 'https://github.com/siriusbontea' },
   {
     key: 'osm',
     label: 'OpenStreetMap',
     href: 'https://www.openstreetmap.org/user/Sirius%20T%20Bontea/history#map=3/43.94/-68.94',
   },
-  { key: 'x', label: 'X', href: 'https://x.com/SiriusBontea' },
-  { key: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/sirius.t.bontea' },
-  { key: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/@siriusbontea/about' },
 ]

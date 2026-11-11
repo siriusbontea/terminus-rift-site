@@ -1,4 +1,5 @@
 import ContactForm from '../components/ContactForm'
+import { otherProfiles } from '../content/site'
 
 export default function About() {
   return (
@@ -24,6 +25,17 @@ export default function About() {
         redistribution. License terms for any external release will be set at
         that time.
       </p>
+
+      <h2>Elsewhere</h2>
+      <ul className="link-list">
+        {otherProfiles.map((p) => (
+          <li key={p.key}>
+            <a href={p.href} target="_blank" rel="noopener noreferrer">
+              {p.label}
+            </a>
+          </li>
+        ))}
+      </ul>
 
       <h2>Get in touch</h2>
       <p>

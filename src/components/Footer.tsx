@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { site, socials } from '../content/site'
-import { navLinks, quickStartPdf } from '../content/nav'
+import { gameChannels, site } from '../content/site'
+import { navLinks } from '../content/nav'
 
 export default function Footer() {
   return (
@@ -12,6 +12,7 @@ export default function Footer() {
             A high fantasy tabletop roleplaying game in development, inspired by Norse and Greek
             mythology, popular science fiction and classic tabletop roleplaying games.
           </p>
+          <p className="muted">Core Rulebook v0.16.0 and Rift Master’s Guide v0.12.0: in playtest.</p>
           <p className="muted">Copyright © {site.author} 2026.</p>
         </div>
         <nav aria-label="Site">
@@ -22,15 +23,12 @@ export default function Footer() {
                 <Link to={l.to}>{l.label}</Link>
               </li>
             ))}
-            <li>
-              <a href={quickStartPdf}>Quick start (PDF)</a>
-            </li>
           </ul>
         </nav>
-        <nav aria-label="Elsewhere">
-          <p className="footer-head">Elsewhere</p>
+        <nav aria-label="Follow development">
+          <p className="footer-head">Follow development</p>
           <ul className="footer-links">
-            {socials.map((s) => (
+            {gameChannels.map((s) => (
               <li key={s.key}>
                 <a href={s.href} target="_blank" rel="noopener noreferrer">
                   {s.label}
