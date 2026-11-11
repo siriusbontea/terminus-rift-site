@@ -10,7 +10,7 @@ export default function Footer() {
           <p className="footer-title">{site.name}</p>
           <p className="muted">
             A high fantasy tabletop roleplaying game in development, inspired by Norse and Greek
-            mythology, science fiction, and the classic games of yesteryear.
+            mythology, popular science fiction and classic tabletop roleplaying games.
           </p>
           <p className="muted">Copyright © {site.author} 2026.</p>
         </div>

@@ -1,8 +1,7 @@
-import type { CSSProperties, FormEvent, ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import BookCard from '../components/BookCard'
-import { books } from '../content/books'
-import { quickStartPdf } from '../content/nav'
+import { quickStart, quickStartPdf } from '../content/nav'
+import { socials } from '../content/site'
 // Art slots. Drop replacement files in at the same paths; nothing else changes.
 import heroArt from '../assets/art/hero.jpg'
 import hero640avif from '../assets/art/hero-640.avif'
@@ -17,6 +16,7 @@ import worldImg800 from '../assets/img/vellmir-day-night-800.jpg'
 const accent = (c: string) => ({ '--c': c }) as CSSProperties
 
 const jumpLinks = [
+  { id: 'different', label: 'What’s different' },
   { id: 'what', label: 'What is it?' },
   { id: 'create', label: 'Make a hero' },
   { id: 'magic', label: 'Magic' },
@@ -47,8 +47,6 @@ function SectionHead({
 }
 
 export default function Home() {
-  const noSubmit = (e: FormEvent) => e.preventDefault()
-
   return (
     <>
       {/* ================= HERO ================= */}
@@ -76,22 +74,27 @@ export default function Home() {
         <div className="hero__shade" aria-hidden="true" />
         <div className="wrap">
           <div className="hero__content">
-            <p className="kicker">A tabletop roleplaying game in development</p>
+            <p className="kicker">A high fantasy tabletop roleplaying game in development</p>
             <h1 id="hero-title">Terminus Rift</h1>
             <p className="tagline">Vellmir, world of fire and ice</p>
+            {/* Quick start ch01; CRB ch01 (core rule), ch10 (Environmental Pressure), ch03 (life path), ch08 (Rift Surges) */}
             <p className="lede">
-              One side of the world faces its star forever. The other never sees it. Between them
-              runs the Twilight Sea, a narrow ribbon of life under a storm that never ends. Gather
-              your friends, roll a d20, and go where civilised people avoid.
+              A d20 tabletop roleplaying game of survival and discovery on Vellmir, a tidally locked
+              world of scorching day, frozen night and a narrow twilight between. Your party crosses
+              deserts, ice and storm, where the land itself wears you down. Heroes are built from a
+              life story, and magic can surge out of control near the rifts.
             </p>
             <div className="btn-row">
-              <a className="btn btn-primary" href="#updates">
-                Get updates
+              <a className="btn btn-primary" href={quickStartPdf} type="application/pdf">
+                Download the free quick start (PDF)
               </a>
               <a className="btn btn-ghost" href="#what">
                 What is Terminus Rift?
               </a>
             </div>
+            <p className="hero__newcomer">
+              <a href="#what">New to roleplaying? Start here</a>
+            </p>
           </div>
         </div>
       </section>
@@ -106,13 +109,65 @@ export default function Home() {
         </ul>
       </nav>
 
+      {/* ================= WHAT IS DIFFERENT ================= */}
+      <section className="band band-tight" id="different" aria-labelledby="different-title">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="art-strip" aria-hidden="true" />
+            <p className="kicker">What’s different here</p>
+            <h2 id="different-title">Built for Vellmir</h2>
+          </div>
+          <ul className="features">
+            <li>
+              <b>The land fights back.</b> Environmental Pressure rates every hazard from 1 to 5, and
+              each hour of exposure to heat, cold or storm means another Fortitude check.
+              <span className="cite">Core Rulebook, chapter 10</span>
+            </li>
+            <li>
+              <b>Heroes with a life story.</b> Serve one to three career terms before play, then give
+              your hero a Rift Mark: one extraordinary fact true of no one else in the world.
+              <span className="cite">Core Rulebook, chapter 3</span>
+            </li>
+            <li>
+              <b>Rift Surges bend fate.</b> Start each session with one, hold up to three, and spend
+              them to reroll a d20, cling to life at 0 HP, or add 1d6 damage.
+              <span className="cite">Core Rulebook, chapter 2</span>
+            </li>
+            <li>
+              <b>The Wounded cascade.</b> Drop to half your Hit Points and your spent Exploits
+              refresh. Drop to a tenth and they refresh again, and your Desperate ability unlocks.
+              <span className="cite">Core Rulebook, chapter 2</span>
+            </li>
+            <li>
+              <b>Universal range bands.</b> Every power uses the same five bands, so your group can
+              switch between zones, squares and hexes, even mid-session.
+              <span className="cite">Core Rulebook, chapter 9</span>
+            </li>
+          </ul>
+
+          <aside className="card card--spaced coming-from" aria-labelledby="coming-title">
+            <h3 id="coming-title">Already play d20 games?</h3>
+            <p>The core is a d20 plus a modifier against a Difficulty Class. Around it, Terminus Rift does its own thing:</p>
+            <ul className="tick-list">
+              <li><b>Eight attributes</b>, four Facets of Form and four Facets of Mind.</li>
+              <li><b>Techniques, Exploits and Gambits:</b> powers at will, once per encounter, and once per day. Exploits refresh after a short rest, and again at Wounded and Desperate.</li>
+              <li><b>Spell Reserve and Effort:</b> no spell preparation, and psionicists run on Effort instead of spells (see Magic).</li>
+              <li><b>Archetypes</b> replace multiclassing.</li>
+              <li><b>Cosmic bonds</b> tie your hero to Vellmir’s factions, deities and cosmic entities.</li>
+            </ul>
+            <p className="cite">Core Rulebook, chapters 1, 2, 3 and 8.</p>
+          </aside>
+        </div>
+      </section>
+
       {/* ================= WHAT IS IT ================= */}
       <section className="band" id="what" aria-labelledby="what-title">
         <div className="wrap">
           <SectionHead id="what-title" kicker="What is it?" title="A story you tell together">
-            A tabletop roleplaying game is collaborative storytelling shared amongst friends around
-            a table. One player is the <b>Rift Master</b>, who describes the world and plays everyone
-            in it. Everyone else plays one hero. The story belongs to everyone at the table.
+            One player is the <b>Rift Master</b>: the narrator and referee who describes the world
+            and plays everyone in it. Everyone else plays one hero and decides what they say and
+            do. If you have enjoyed choose-your-own-adventure books, improv or co-operative video
+            games, you already understand the appeal.
           </SectionHead>
 
           <div className="cards cards-3">
@@ -168,8 +223,8 @@ export default function Home() {
               </svg>
               <h3>Real physics, real magic</h3>
               <p>
-                Every feature of the Astralis system is grounded in real astrophysics, yet shaped by
-                story. Optional sidebars show the maths behind the myth for those who want it.
+                Built on real astrophysics, then shaped by story. Optional sidebars show the maths
+                behind the myth for those who want it.
               </p>
             </article>
           </div>
@@ -180,10 +235,10 @@ export default function Home() {
               <li>A set of polyhedral dice</li>
               <li>A character sheet</li>
               <li>Pencil and eraser</li>
-              <li>The Core Rulebook</li>
+              <li>The Core Rulebook (in playtest, not yet available)</li>
               <li>3–6 friends</li>
             </ul>
-            <p className="cite">From the Core Rulebook, chapter 1: Introduction.</p>
+            <p className="cite">From the Core Rulebook, chapter 1: Introduction. Core Rulebook: in playtest, not yet available.</p>
           </div>
         </div>
       </section>
@@ -191,37 +246,53 @@ export default function Home() {
       {/* ================= CHARACTER CREATION ================= */}
       <section className="band band-alt" id="create" aria-labelledby="create-title">
         <div className="wrap">
-          <SectionHead id="create-title" kicker="Make a hero" title="Heroes with a past">
-            Every adventurer on Vellmir has a story: not just where they are going, but where they
-            have been. <i>Terminus Rift</i> builds your hero step by step with a life path, from the
-            people they come from to the moment they step into the unknown.
+          <SectionHead id="create-title" kicker="Make a hero" title="Heroes built from a life story">
+            <i>Terminus Rift</i> builds your hero with a life path: the people they come from, the
+            years they served before adventure, and the moment they step into the unknown. Each step
+            gives real skills, gear and abilities.
           </SectionHead>
 
-          <ol className="steps">
-            <li><div><strong>Ancestry</strong><span>One of eight playable families.</span></div></li>
-            <li><div><strong>Attributes</strong><span>Point buy, standard array, or 4d6 drop lowest.</span></div></li>
-            <li><div><strong>Origin</strong><span>Dayside, Terminator, Nightside, Djupheim, or Veil-touched.</span></div></li>
-            <li><div><strong>Background</strong><span>Skills, an ability and starting gear.</span></div></li>
-            <li><div><strong>Career terms</strong><span>One to three four-year chapters of your life before adventure.</span></div></li>
-            <li><div><strong>Class</strong><span>One of twelve classes.</span></div></li>
-            <li><div><strong>Rift Mark</strong><span>One extraordinary fact true of no one else in the world.</span></div></li>
-            <li><div><strong>Finishing touches</strong><span>Alignment, equipment, personality.</span></div></li>
-          </ol>
+          <div className="rift-mark card">
+            <p className="kicker">The Rift Mark</p>
+            <h3>One extraordinary fact true of no one else in the world</h3>
+            <p className="muted">
+              It creates story hooks, not combat bonuses. A career event can become your Rift Mark.
+            </p>
+            <blockquote>
+              “I am the only person to have walked into the Singing Rift and walked back out with my
+              mind intact.”
+            </blockquote>
+            <p className="cite">Example hero from the Core Rulebook, chapter 3.</p>
+          </div>
 
           <div className="paths">
             <div className="path">
-              <span className="time">15 minutes</span>
-              <h3>Quick-Start</h3>
-              <p className="muted">Pick a career archetype such as Soldier, Scholar or Outlaw and start playing tonight.</p>
-            </div>
-            <div className="path">
               <span className="time">60–90 minutes</span>
               <h3>Full life path</h3>
-              <p className="muted">Qualify, survive and narrate your career terms. You come out with friends, enemies, scars and secrets.</p>
+              <p className="muted">Qualify, survive and narrate one to three career terms. You come out with friends, enemies, scars and secrets.</p>
+            </div>
+            <div className="path">
+              <span className="time">15 minutes</span>
+              <h3>Quick-Start</h3>
+              <p className="muted">Pick a career archetype such as Soldier, Scholar or Outlaw and have a character ready in about 15 minutes.</p>
             </div>
           </div>
 
-          <h3 className="subhead">The eight families of Vellmir</h3>
+          <details className="disclosure">
+            <summary>Show all eight steps</summary>
+            <ol className="steps">
+              <li><div><strong>Ancestry</strong><span>One of eight playable ancestries.</span></div></li>
+              <li><div><strong>Attributes</strong><span>Eight attributes: four Facets of Form and four Facets of Mind.</span></div></li>
+              <li><div><strong>Origin</strong><span>Dayside, Terminator, Nightside, Djupheim, or Veil-touched.</span></div></li>
+              <li><div><strong>Background</strong><span>Skills, an ability and starting gear.</span></div></li>
+              <li><div><strong>Career terms</strong><span>One to three four-year chapters of your life before adventure.</span></div></li>
+              <li><div><strong>Class</strong><span>One of twelve classes.</span></div></li>
+              <li><div><strong>Rift Mark</strong><span>One extraordinary fact true of no one else in the world.</span></div></li>
+              <li><div><strong>Finishing touches</strong><span>Alignment (it sets how strangers react to you), cosmic bonds, equipment, personality.</span></div></li>
+            </ol>
+          </details>
+
+          <h3 className="subhead">The eight ancestries of Vellmir</h3>
           <ul className="ancestries">
             <li><b>Human</b><i>Adaptable, ambitious, endlessly diverse.</i></li>
             <li><b>Dwarf</b><i>Enduring as the mountain, patient as the stone.</i></li>
@@ -233,75 +304,73 @@ export default function Home() {
             <li><b>Chitinfolk</b><i>Builders, hunters, and keepers of the terminator’s living cities.</i></li>
           </ul>
 
-          <h3 className="subhead">Twelve classes</h3>
-          <ul className="chips" aria-label="Classes">
-            {['Warrior', 'Rogue', 'Wizard', 'Priest', 'Ranger', 'Sorcerer', 'Bard', 'Psionicist', 'Druid', 'Artificer', 'Paladin', 'Shaman'].map(
-              (c) => (
-                <li key={c}>{c}</li>
-              ),
-            )}
-          </ul>
-          <p className="cite">From the Core Rulebook, chapter 3: Character Creation, and chapter 4: Ancestries.</p>
+          <details className="disclosure">
+            <summary>Show the twelve classes</summary>
+            <ul className="chips" aria-label="Classes">
+              {['Warrior', 'Rogue', 'Wizard', 'Priest', 'Ranger', 'Sorcerer', 'Bard', 'Psionicist', 'Druid', 'Artificer', 'Paladin', 'Shaman'].map(
+                (c) => (
+                  <li key={c}>{c}</li>
+                ),
+              )}
+            </ul>
+          </details>
+          <p className="cite">From the Core Rulebook, chapter 3: Character Creation, chapter 4: Ancestries, and chapter 5: Classes.</p>
         </div>
       </section>
 
       {/* ================= MAGIC ================= */}
       <section className="band" id="magic" aria-labelledby="magic-title">
         <div className="wrap">
-          <SectionHead id="magic-title" kicker="Magic" title="Magic permeates Vellmir">
+          <SectionHead id="magic-title" kicker="Magic" title="Near a rift, a spell can fizzle or blow wide open">
             The rift energy that scars the world amplifies and distorts every power a caster wields.
-            Spells come from four traditions, and psionicists bend reality with willpower alone.
+            Spells belong to four traditions, Arcane, Divine, Occult and Primal, and psionicists
+            bend reality with willpower alone.
           </SectionHead>
 
-          <div className="traditions">
-            <div className="tradition" style={accent('#5AB8FF')}>
-              <div><h3>Arcane</h3><p>The fundamental laws of reality, learnt through study or inherited through bloodline. Wizard, Sorcerer, Artificer.</p></div>
-            </div>
-            <div className="tradition" style={accent('#F2B85B')}>
-              <div><h3>Divine</h3><p>Channelled from cosmic entities, deities or ideals. Heals, protects and smites. Priest.</p></div>
-            </div>
-            <div className="tradition" style={accent('#B3344A')}>
-              <div><h3>Occult</h3><p>Emotion, symbol and the hidden connections between all things. Bard.</p></div>
-            </div>
-            <div className="tradition" style={accent('#3d8f6a')}>
-              <div><h3>Primal</h3><p>Vellmir’s forests, storms, beasts and elements. Druid, Ranger.</p></div>
-            </div>
+          <div className="cards cards-3">
+            <article className="card">
+              <h3>The Rift Surge check</h3>
+              <p className="muted">Cast near an active rift and the Rift Master may call for a flat d20 roll.</p>
+              <ul className="bands">
+                <li><span>1–5</span><span>Dampened: half effect</span></li>
+                <li><span>6–15</span><span>Normal casting</span></li>
+                <li><span>16–19</span><span>Amplified: +50%</span></li>
+                <li><span>20</span><span>Cascade: auto-crit</span></li>
+              </ul>
+            </article>
+            <article className="card">
+              <h3>Spell Reserve</h3>
+              <p className="muted">You know your spells and can cast any of them at any time. A Spell Reserve lets you keep casting beyond your Exploits and Gambits, and it refills by 2 when you become Wounded.</p>
+            </article>
+            <article className="card">
+              <h3>Effort</h3>
+              <p className="muted">Psionicists don’t cast spells. They commit Effort for a scene, a day or indefinitely, and it floods back when they become Wounded or Desperate.</p>
+            </article>
           </div>
 
-          <div className="two-col">
-            <div className="card">
-              <h3>No spell preparation</h3>
-              <p className="muted">You know your spells and can cast any of them at any time. Cantrips are at will, encounter spells come back after a rest, and your mightiest daily spells are saved for when it matters.</p>
-            </div>
-            <div className="card">
-              <h3>Rift Surges</h3>
-              <p className="muted">Cast near an active rift and the Rift Master may call for a Rift Surge check. Your spell might be dampened to half strength, or amplified far beyond what you planned.</p>
-            </div>
-          </div>
-          <p className="cite">From the Core Rulebook, chapter 8: Magic &amp; Psionics.</p>
+          <details className="disclosure">
+            <summary>Which classes use which tradition</summary>
+            <ul className="trad-list">
+              <li style={accent('#5AB8FF')}><b>Arcane</b> Wizard, Sorcerer, Artificer</li>
+              <li style={accent('#F2B85B')}><b>Divine</b> Priest, Paladin</li>
+              <li style={accent('#B3344A')}><b>Occult</b> Bard</li>
+              <li style={accent('#3d8f6a')}><b>Primal</b> Druid, Ranger, Shaman</li>
+              <li style={accent('#E9EEF6')}><b>Psionic</b> Psionicist (Effort, not spells)</li>
+            </ul>
+          </details>
+          <p className="cite">From the Core Rulebook, chapter 2: Core Mechanics, chapter 8: Magic &amp; Psionics, and the class table in chapter 5.</p>
         </div>
       </section>
 
       {/* ================= COMBAT ================= */}
       <section className="band band-alt" id="combat" aria-labelledby="combat-title">
         <div className="wrap">
-          <SectionHead id="combat-title" kicker="Combat" title="Tactical and decisive">
-            When negotiation fails and blades are drawn, every turn is a real choice. Fights on
-            Vellmir are rarely tidy: volcanic vents erupt, sandstorms blind, and rift energy
-            crackles through the air.
+          <SectionHead id="combat-title" kicker="Combat" title="The battlefield fights back">
+            Fights on Vellmir are rarely tidy: volcanic vents erupt, sandstorms blind, and rift
+            energy crackles through the air.
           </SectionHead>
 
-          <div className="cards cards-3">
-            <article className="card">
-              <h3>Three actions, one reaction</h3>
-              <div className="actions" aria-label="Three actions and one reaction">
-                <span className="pip" aria-hidden="true">1</span>
-                <span className="pip" aria-hidden="true">2</span>
-                <span className="pip" aria-hidden="true">3</span>
-                <span className="pip react" aria-hidden="true">R</span>
-              </div>
-              <p className="muted">Stride, Strike, cast, raise a shield. Spend your actions in any order you like.</p>
-            </article>
+          <div className="cards cards-2">
             <article className="card">
               <h3>Wounded, then Desperate</h3>
               <div className="meter" aria-hidden="true" />
@@ -311,33 +380,25 @@ export default function Home() {
                 <span>Full</span>
               </div>
               <p className="muted" style={{ marginTop: '0.75rem' }}>
-                Drop to half your Hit Points and your best moves come back. Drop to a tenth and they
-                come back again. A losing fight can still become a dramatic victory.
+                At half your Hit Points you are Wounded: your spent Exploits refresh, your Strikes deal
+                bonus damage and you gain a Rift Surge. At a tenth you are Desperate: your Exploits
+                refresh again and your class’s Desperate ability unlocks.
               </p>
             </article>
             <article className="card">
               <h3>Five range bands</h3>
               <ul className="bands">
-                <li><span>Melee</span><span>5 ft</span></li>
-                <li><span>Close</span><span>30 ft</span></li>
-                <li><span>Medium</span><span>60 ft</span></li>
-                <li><span>Long</span><span>120 ft</span></li>
-                <li><span>Extreme</span><span>240+ ft</span></li>
+                <li><span>Melee</span><span>5 ft · adjacent</span></li>
+                <li><span>Close</span><span>30 ft · 6 sq · 5 hex</span></li>
+                <li><span>Medium</span><span>60 ft · 12 sq · 10 hex</span></li>
+                <li><span>Long</span><span>120 ft · 24 sq · 20 hex</span></li>
+                <li><span>Extreme</span><span>240+ ft · 48+ sq · 40+ hex</span></li>
               </ul>
+              <p className="cite">Ranges are in feet, as in the Core Rulebook, with square and hex equivalents.</p>
             </article>
           </div>
 
-          <h3 className="subhead">Play it your way</h3>
-          <p className="muted">
-            Every power uses the same range bands, so you can switch between theatre-of-the-mind
-            zones, a square grid or hexes, even in the middle of a session.
-          </p>
-          <div className="triad">
-            <div style={accent('#5AB8FF')}><b>Zones</b><small>Fast and cinematic</small></div>
-            <div style={accent('#F2B85B')}><b>Squares</b><small>Precise duels</small></div>
-            <div style={accent('#E8743B')}><b>Hexes</b><small>Big battles</small></div>
-          </div>
-          <p className="cite">From the Core Rulebook, chapter 9: Combat.</p>
+          <p className="cite">From the Core Rulebook, chapter 2: Core Mechanics, and chapter 9: Combat.</p>
         </div>
       </section>
 
@@ -398,73 +459,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= THE BOOKS ================= */}
-      <section className="band band-alt" id="books" aria-labelledby="books-title">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="art-strip" aria-hidden="true" />
-            <p className="kicker">The books</p>
-            <h2 id="books-title">The books</h2>
-            <p className="lede">
-              Three rulebooks form the canon — currently in pre-release while playtesting continues.
-            </p>
-          </div>
-          <div className="book-grid">
-            {books.map((book) => (
-              <BookCard key={book.slug} book={book} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ================= QUICK START + UPDATES ================= */}
-      <section className="band" aria-label="Quick start and updates">
+      <section className="band" aria-label="Quick start and following development">
         <div className="wrap end-grid">
           <div className="quickstart" id="quickstart">
-            <p className="kicker">Play free</p>
-            <h2>The quick start</h2>
+            <p className="kicker">Free download</p>
+            <h2>Free quick start: make your first character</h2>
             <p>
-              A short, free booklet: how the check works, how to make a character step by step, and
-              a character sheet to fill in.
+              How the check works, how to make a character step by step, and a character sheet to
+              fill in. It covers character creation only: for combat, magic and class powers you
+              still need the Core Rulebook.
             </p>
             <div className="btn-row">
               <a className="btn btn-primary" href={quickStartPdf} type="application/pdf">
-                Download the quick start (PDF)
+                Download the free quick start
               </a>
             </div>
-            <p className="cite">PDF, about 120 KB.</p>
+            <p className="cite">
+              PDF, {quickStart.pages} pages, {quickStart.size}. Version {quickStart.version}.
+            </p>
+            <p className="cite">Core Rulebook: in playtest, not yet available. <Link to="/books">About the books</Link></p>
           </div>
 
-          {/* PLACEHOLDER: mailing list provider not chosen yet. Not wired to anything. */}
-          <div className="signup" id="updates">
-            <p className="kicker">Get updates</p>
-            <h2>Hear about new chapters first</h2>
-            <p className="muted">News on playtests, previews and release dates. No spam.</p>
-            <form aria-describedby="signup-note" onSubmit={noSubmit} noValidate>
-              <div className="full">
-                <label htmlFor="email">Your email address</label>
-              </div>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                inputMode="email"
-                placeholder="you@example.com"
-              />
-              <button className="btn btn-primary" type="button" aria-disabled="true">
-                Sign me up
-              </button>
-              <label className="check full">
-                <span className="check-hit">
-                  <input type="checkbox" name="consent" />
-                </span>
-                <span>I agree to receive emails about Terminus Rift. I can unsubscribe at any time.</span>
-              </label>
-            </form>
-            <span className="placeholder-note" id="signup-note">
-              Placeholder form: not connected to any mailing list.
-            </span>
+          <div className="follow" id="follow">
+            <p className="kicker">Elsewhere</p>
+            <h2>Follow development</h2>
+            <p className="muted">Follow along on YouTube and X while the books are in playtest.</p>
+            <div className="btn-row">
+              {socials
+                .filter((s) => s.key === 'youtube' || s.key === 'x')
+                .map((s) => (
+                  <a key={s.key} className="btn btn-ghost" href={s.href} target="_blank" rel="noopener noreferrer">
+                    {s.label === 'X' ? 'Follow on X' : 'Watch on YouTube'}
+                  </a>
+                ))}
+            </div>
           </div>
         </div>
       </section>

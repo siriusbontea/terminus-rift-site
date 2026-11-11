@@ -32,7 +32,7 @@ export default function Layout() {
       </a>
       {/* Remove at launch, together with the noindex tag in index.html. */}
       <p className="preview-banner" role="note">
-        Preview of the new site, not yet launched. The updates form does nothing yet.
+        Preview of the new site, not yet launched.
       </p>
       <Header />
       <main id="main" className="page__main" tabIndex={-1}>

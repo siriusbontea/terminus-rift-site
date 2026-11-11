@@ -10,4 +10,7 @@ export const navLinks: Array<{ to: string; label: string; end?: boolean }> = [
 
 export const navCta = { to: '/#quickstart', label: 'Free quick start' }
 
+// Read from QuickStart/TerminusRiftQuickStart.pdf (pdfinfo) and QuickStart/src/preamble.tex.
+export const quickStart = { pages: 17, size: '121 KB', version: '0.1.0' }
+
 export const quickStartPdf = `${import.meta.env.BASE_URL}TerminusRiftQuickStart.pdf`
