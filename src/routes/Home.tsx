@@ -1,7 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { quickStart, quickStartPdf } from '../content/nav'
-import { socials } from '../content/site'
+import { gameChannels } from '../content/site'
 // Art slots. Drop replacement files in at the same paths; nothing else changes.
 import heroArt from '../assets/art/hero.jpg'
 import hero640avif from '../assets/art/hero-640.avif'
@@ -22,7 +21,7 @@ const jumpLinks = [
   { id: 'magic', label: 'Magic' },
   { id: 'combat', label: 'Combat' },
   { id: 'world', label: 'The world' },
-  { id: 'quickstart', label: 'Quick start' },
+  { id: 'follow', label: 'Follow development' },
 ]
 
 function SectionHead({
@@ -77,7 +76,7 @@ export default function Home() {
             <p className="kicker">A high fantasy tabletop roleplaying game in development</p>
             <h1 id="hero-title">Terminus Rift</h1>
             <p className="tagline">Vellmir, world of fire and ice</p>
-            {/* Quick start ch01; CRB ch01 (core rule), ch10 (Environmental Pressure), ch03 (life path), ch08 (Rift Surges) */}
+            {/* CRB ch01 (core rule), ch10 (Environmental Pressure), ch03 (life path), ch08 (Rift Surges) */}
             <p className="lede">
               A d20 tabletop roleplaying game of survival and discovery on Vellmir, a tidally locked
               world of scorching day, frozen night and a narrow twilight between. Your party crosses
@@ -85,8 +84,8 @@ export default function Home() {
               life story, and magic can surge out of control near the rifts.
             </p>
             <div className="btn-row">
-              <a className="btn btn-primary" href={quickStartPdf} type="application/pdf">
-                Download the free quick start (PDF)
+              <a className="btn btn-primary" href="#follow">
+                Follow development
               </a>
               <a className="btn btn-ghost" href="#what">
                 What is Terminus Rift?
@@ -274,7 +273,7 @@ export default function Home() {
             <div className="path">
               <span className="time">15 minutes</span>
               <h3>Quick-Start</h3>
-              <p className="muted">Pick a career archetype such as Soldier, Scholar or Outlaw and have a character ready in about 15 minutes.</p>
+              <p className="muted">Pick a career archetype such as Soldier, Scholar or Outlaw and skip the career terms.</p>
             </div>
           </div>
 
@@ -335,7 +334,7 @@ export default function Home() {
                 <li><span>1–5</span><span>Dampened: half effect</span></li>
                 <li><span>6–15</span><span>Normal casting</span></li>
                 <li><span>16–19</span><span>Amplified: +50%</span></li>
-                <li><span>20</span><span>Cascade: auto-crit</span></li>
+                <li><span>20</span><span>Cascade: auto-crit, plus a random rift effect</span></li>
               </ul>
             </article>
             <article className="card">
@@ -460,24 +459,11 @@ export default function Home() {
       </section>
 
       {/* ================= QUICK START + UPDATES ================= */}
-      <section className="band" aria-label="Quick start and following development">
+      <section className="band" aria-label="Coming soon and following development">
         <div className="wrap end-grid">
           <div className="quickstart" id="quickstart">
-            <p className="kicker">Free download</p>
-            <h2>Free quick start: make your first character</h2>
-            <p>
-              How the check works, how to make a character step by step, and a character sheet to
-              fill in. It covers character creation only: for combat, magic and class powers you
-              still need the Core Rulebook.
-            </p>
-            <div className="btn-row">
-              <a className="btn btn-primary" href={quickStartPdf} type="application/pdf">
-                Download the free quick start
-              </a>
-            </div>
-            <p className="cite">
-              PDF, {quickStart.pages} pages, {quickStart.size}. Version {quickStart.version}.
-            </p>
+            <p className="kicker">Quick Start</p>
+            <h2>Free Quick Start coming soon</h2>
             <p className="cite">Core Rulebook: in playtest, not yet available. <Link to="/books">About the books</Link></p>
           </div>
 
@@ -486,13 +472,17 @@ export default function Home() {
             <h2>Follow development</h2>
             <p className="muted">Follow along on YouTube and X while the books are in playtest.</p>
             <div className="btn-row">
-              {socials
-                .filter((s) => s.key === 'youtube' || s.key === 'x')
-                .map((s) => (
-                  <a key={s.key} className="btn btn-ghost" href={s.href} target="_blank" rel="noopener noreferrer">
-                    {s.label === 'X' ? 'Follow on X' : 'Watch on YouTube'}
-                  </a>
-                ))}
+              {gameChannels.map((c, i) => (
+                <a
+                  key={c.key}
+                  className={i === 0 ? 'btn btn-primary' : 'btn btn-ghost'}
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {c.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
