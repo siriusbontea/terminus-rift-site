@@ -9,8 +9,9 @@ export default function Footer() {
         <div>
           <p className="footer-title">{site.name}</p>
           <p className="muted">
-            A high fantasy tabletop roleplaying game in development, inspired by Norse and Greek
-            mythology, popular science fiction and classic tabletop roleplaying games.
+            A high fantasy tabletop roleplaying game with a touch of sci-fi, in development. Inspired
+            by Norse and Greek mythology, popular science fiction and classic tabletop roleplaying
+            games.
           </p>
           <p className="muted">Core Rulebook v0.16.0 and Rift Master’s Guide v0.12.0: in playtest.</p>
           <p className="muted">Copyright © {site.author} 2026.</p>

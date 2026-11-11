@@ -174,7 +174,7 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 }
 .hero .tagline { text-wrap: balance; font-family: var(--font-title); font-size: clamp(1.1rem, 3.6vw, 1.5rem); color: var(--amber); margin-bottom: 1rem; }
 .hero .lede { margin-bottom: 1.5rem; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6); }
-.hero .kicker { color: var(--frost); opacity: 0.9; }
+.hero .kicker { color: var(--frost); opacity: 0.9; text-wrap: balance; }
 
 /* Tablet: a wider banner shows the whole composition, text below. */
 @media (min-width: 700px) and (max-width: 1023px) {

@@ -73,7 +73,7 @@ export default function Home() {
         <div className="hero__shade" aria-hidden="true" />
         <div className="wrap">
           <div className="hero__content">
-            <p className="kicker">A high fantasy tabletop roleplaying game in development</p>
+            <p className="kicker">A high fantasy tabletop roleplaying game with a touch of sci-fi, in development</p>
             <h1 id="hero-title">Terminus Rift</h1>
             <p className="tagline">Vellmir, world of fire and ice</p>
             {/* CRB ch01 (core rule), ch10 (Environmental Pressure), ch03 (life path), ch08 (Rift Surges) */}
@@ -287,7 +287,7 @@ export default function Home() {
               <li><div><strong>Career terms</strong><span>One to three four-year chapters of your life before adventure.</span></div></li>
               <li><div><strong>Class</strong><span>One of twelve classes.</span></div></li>
               <li><div><strong>Rift Mark</strong><span>One extraordinary fact true of no one else in the world.</span></div></li>
-              <li><div><strong>Finishing touches</strong><span>Alignment (it sets how strangers react to you), cosmic bonds, equipment, personality.</span></div></li>
+              <li><div><strong>Finishing touches</strong><span>Alignment (it shapes how strangers react to you), cosmic bonds, equipment, personality.</span></div></li>
             </ol>
           </details>
 
@@ -328,8 +328,8 @@ export default function Home() {
 
           <div className="cards cards-3">
             <article className="card">
-              <h3>The Rift Surge check</h3>
-              <p className="muted">Cast near an active rift and the Rift Master may call for a flat d20 roll.</p>
+              <h3>Optional: the Rift Surge check</h3>
+              <p className="muted">Optional: near an active rift, the Rift Master may call for a Rift Surge check, a flat d20 roll.</p>
               <ul className="bands">
                 <li><span>1–5</span><span>Dampened: half effect</span></li>
                 <li><span>6–15</span><span>Normal casting</span></li>
@@ -351,7 +351,7 @@ export default function Home() {
             <summary>Which classes use which tradition</summary>
             <ul className="trad-list">
               <li style={accent('#5AB8FF')}><b>Arcane</b> Wizard, Sorcerer, Artificer</li>
-              <li style={accent('#F2B85B')}><b>Divine</b> Priest, Paladin</li>
+              <li style={accent('#F2B85B')}><b>Divine</b> Priest, Paladin (divine and martial)</li>
               <li style={accent('#B3344A')}><b>Occult</b> Bard</li>
               <li style={accent('#3d8f6a')}><b>Primal</b> Druid, Ranger, Shaman</li>
               <li style={accent('#E9EEF6')}><b>Psionic</b> Psionicist (Effort, not spells)</li>
